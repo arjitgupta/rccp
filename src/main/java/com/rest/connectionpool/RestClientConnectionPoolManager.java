@@ -18,7 +18,6 @@ public class RestClientConnectionPoolManager {
 
     private RestClientConnectionPoolManager(){}
 
-
     public static RestClient getInstance(RestClientConnectionPoolManager.Builder builder) throws UnsupportedClientException {
         if(poolMap.containsKey(builder.getUrl())){
             synchronized (RestClientConnectionPoolManager.class){

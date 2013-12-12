@@ -8,16 +8,14 @@ package com.rest.connectionpool;
  */
 public class RestClientFactory {
     private RestClientFactory(){}
-    
-                public static RestClient getInstance(RestClientConnectionPoolManager.Builder builder) throws UnsupportedClientException {
-             RestClient restClient;
-                if(builder.getRestClientType()==RestClientType.JERSEY){
-                        restClient= JerseryClientConnectionPool.getInstance(builder);
-                    }else {
-                        throw new UnsupportedClientException("Client type not supported");
-                    }
-        
-                        return restClient;
-        
-                    }
+
+    public static RestClient getInstance(RestClientConnectionPoolManager.Builder builder) throws UnsupportedClientException {
+        RestClient restClient;
+        if(builder.getRestClientType()==RestClientType.JERSEY){
+            restClient= JerseryClientConnectionPool.getInstance(builder);
+        }else {
+            throw new UnsupportedClientException("Client type not supported");
+        }
+        return restClient;
+    }
 }
